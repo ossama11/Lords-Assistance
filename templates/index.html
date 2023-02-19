@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home | Lords Assistance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/stylesheets/style.css">
+    <style>
+        /* styles pour les boutons "gifts" et "coming soon" */
+        
+        .btn-box {
+            background-color: #212529;
+            border-radius: 8px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .btn-box:hover {
+            background-color: #343a40;
+        }
+        
+        .btn-box a {
+            font-size: 28px;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .btn-box a:hover {
+            color: #ffc107;
+        }
+        
+        @media (max-width: 576px) {
+            .btn-box {
+                height: 100px;
+            }
+            .btn-box a {
+                font-size: 20px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Lords Assistance</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('gifts') }}">Exchange Center</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('SpeedUpsCalc') }}">Speedup Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('gifts') }}">coming</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="text-center my-5">Welcome to Lords Assistance</h1>
+        <div class="row">
+            <div href="{{ url_for('gifts') }}" class="col-md-6">
+                <div class="btn-box">
+                    <a href="{{ url_for('gifts') }}">Exchange Center</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="btn-box">
+                    <a href="{{ url_for('SpeedUpsCalc') }}">speedup calculator</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="btn-box">
+                    <a href="#">coming soon</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="btn-box">
+                    <a href="#">coming soon</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-light py-3 mt-5">
+        <div class="container text-center">
+            &copy; 2023 by OtaDev
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

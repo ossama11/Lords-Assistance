@@ -1,0 +1,89 @@
+<!--------- 
+
+
+
+------------>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exchange Center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/stylesheets/style.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Lords Assistance</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('gifts') }}">Exchange Center</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('SpeedUpsCalc') }}">Speedup Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('gifts') }}">coming</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h1 class="text-center my-5">Earn code rewards for all your accounts or the accounts of your alliance members with one click</h1>
+        <form method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="cdkey">CODE Key:</label>
+                <input type="text" id="cdkey" name="cdkey" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="file">Choose a file contains player name (txt only)</label>
+                <input type="file" id="file" name="file" class="form-control-file">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Upload</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            &copy; 2023 by OtaDev
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function validateForm() {
+            const cdkey = document.getElementById("cdkey").value.trim();
+            const file = document.getElementById("file").value.trim();
+            const fileExtension = file.substr(file.lastIndexOf(".") + 1).toLowerCase();
+
+            if (!/^[a-zA-Z0-9]*$/.test(cdkey)) {
+                alert("CD Key must contain only alphanumeric characters.");
+                return false;
+            }
+
+            if (fileExtension !== "txt") {
+                alert("File must be in .txt format.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>

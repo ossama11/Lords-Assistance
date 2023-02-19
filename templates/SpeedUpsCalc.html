@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Exchange Center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/stylesheets/style.css">
+    <style>
+        .speedup-panels-box {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .description {
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .speedup-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        
+        .form-group {
+            width: 100%;
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            height: 50px;
+            font-size: 1.25rem;
+            padding: 0 10px;
+            border: 2px solid #ced4da;
+            border-radius: 5px;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        
+        .calc-btn {
+            width: 100%;
+            height: 50px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.15s ease-in-out;
+            cursor: pointer;
+        }
+        
+        .calc-btn:hover {
+            background-color: #0069d9;
+        }
+        
+        .result-panel {
+            font-size: 2rem;
+            font-weight: 600;
+            padding: 50px;
+            background-color: #272727;
+            border-radius: 5px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Lords Assistance</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('gifts') }}">Exchange Center</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('SpeedUpsCalc') }}">Speedup Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('gifts') }}">coming</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="speedup-panels-box">
+            <p class="description text-center">On this page you can find the speedup calculator for Lords Mobile.</p>
+            <div class="speedup-panel">
+                <div class="form-group">
+                    <label>1 minute</label>
+                    <input type="text" id="su1min" name="su1min" value="0" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>3 minutes</label>
+                    <input type="text" id="su3min" name="su3min" value="0" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>5 minutes</label>
+                    <input type="text" id="su5min" name="su5min" value="0" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>10 minutes</label>
+                    <input type="text" id="su10min" name="su10min" value="0" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>15 minutes</label>
+                    <input type="text" id="su15min" name="su15min" value="0" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>30 minutes</label>
+                    <input type="text" id="su30min" name="su30min" value="0" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>60 minutes</label>
+                    <input type="text" id="su60min" name="su60min" value="0" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>3 hours</label>
+                    <input type="text" id="su3h" name="su3h" value="0" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>8 hours</label>
+                    <input type="text" id="su8h" name="su8h" value="0" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>15 hours</label>
+                    <input type="text" id="su15h" name="su15h" value="0" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>24 hours</label>
+                    <input type="text" id="su24h" name="su24h" value="0" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>3 days</label>
+                    <input type="text" id="su3d" name="su3d" value="0" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>7 days</label>
+                    <input type="text" id="su7d" name="su7d" value="0" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>30 days</label>
+                    <input type="text" id="su30d" name="su30d" value="0" class="form-control" />
+                </div>
+
+                <button class="calc-btn btn-block" id="calcbtn">Calculate</button>
+            </div>
+            <div class="result-panel text-center mt-4" id="resultsPanel">
+                <p>Total time will be shown here</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-3 mt-5">
+        <div class="container text-center">
+            &copy; 2023 by OtaDev
+        </div>
+    </footer>
+
+    <script src="/static/stylesheets/speedup.js"></script>
+
+
+
+    <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "></script>
+
+</body>
+
+</html>
+
+</html>
